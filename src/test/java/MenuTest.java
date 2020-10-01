@@ -40,7 +40,7 @@ public class MenuTest {
 
     @Test
     public void findNewsAboutArmenia (){
-        //Проверяет что при вводе в поиск теста Armenia, поисковик возвращает сообщение  No results found
+        //Проверяет что при вводе в поиск текста Armenia, поисковик возвращает сообщение  No results found
         mainPage
                 .clickSearch()
                 .enterSearch("Armenia");
