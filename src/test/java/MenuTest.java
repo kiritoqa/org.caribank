@@ -21,22 +21,26 @@ public class MenuTest {
     CareersPage careersPage = new CareersPage();
     @BeforeClass
     public static void setUp() {
+        //Разворачивает окно браузера во весь экран
         Configuration.startMaximized = true;
     }
 
     @Before
     public void init () {
+        //Открывает проект в браузере для каждого теста
         new BasePage().open();
     }
 
     @After
     public void tearsDown() {
+        //Чистит все куки после каждого теста
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
 
     @Test
     public void findNewsAboutArmenia (){
+        //Проверяет что при вводе в поиск теста Armenia, поисковик возвращает сообщение  No results found
         mainPage
                 .clickSearch()
                 .enterSearch("Armenia");
@@ -46,6 +50,7 @@ public class MenuTest {
 
     @Test
     public void aboutUsCategories(){
+        //Проверяет что категория "О нас" имеет 7 подразделов
         mainPage.clickMenu();
         assertSame(7, menuPage.aboutUsShouldHaveNumberCategories());
     }
@@ -53,18 +58,21 @@ public class MenuTest {
 
     @Test
     public void invalidTestMenuCategories(){
+        //Проверяет что "Меню" не имеет 7 разделов
         mainPage.clickMenu();
         assertNotSame(7, menuPage.shouldHaveNumberCategories());
     }
 
     @Test
     public void testMenuCategories(){
+        //Проверяет что "Меню" имеет 6 разделов
         mainPage.clickMenu();
         assertSame(6, menuPage.shouldHaveNumberCategories());
     }
 
     @Test
     public void openCareers(){
+        //Открывает категорию Карьера, скринит содержание контейнера
         //Screen look in \build\reports\tests\1601578464558.0.png
         mainPage.clickMenu();
         menuPage.clickCareers();
@@ -73,11 +81,13 @@ public class MenuTest {
 
     @Test
     public void footerMenuSize(){
+        //Проверяет что footer состоит из 8 разделов
         assertSame(8, menuPage.footrestsHaveNumberCategories());
     }
 
     @Test
     public void footerMenuList(){
+        //Проверяет что название разделов в footer соответствует ожидаемому
         List<String> footlocker = new ArrayList<String>(Arrays.asList("FAQs", "Report Fraud and Corruption", "Legal", "Privacy Statement", "Access to Information", "Extranet", "Careers", "Contact Us"));
         assert (footlocker.equals(menuPage.footrestsHaveListCategories()));
     }
