@@ -11,11 +11,11 @@ public class MenuPage {
 
 
 
-    public int shouldHaveNumberCategories() {
+    public int getNumberOfCategories() {
         return $$(".toolbar-menu").size();
     }
 
-    public int aboutUsShouldHaveNumberCategories() {
+    public int getNumberOfCategoriesForAboutUs() {
         return $$(By.xpath("//*[@id=\"block-cdb-main-menu\"]/div/div[2]/div[1]/div/ul/li")).size();
     }
 
@@ -23,11 +23,11 @@ public class MenuPage {
         $(By.linkText("Careers")).click();
     }
 
-    public List<String> footrestsHaveListCategories() {
+    public List<String> getFooterCategories() {
         return $$(By.xpath("//nav/ul/li/a")).texts();
     }
 
-    public int footrestsHaveNumberCategories() {
+    public int getNumberOfFooterCategories() {
         return $$(By.xpath("//nav/ul/li/a")).size();
     }
 }
