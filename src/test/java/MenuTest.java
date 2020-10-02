@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import widgests.*;
+import widgets.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,26 +21,22 @@ public class MenuTest {
     CareersPage careersPage = new CareersPage();
     @BeforeClass
     public static void setUp() {
-        //Разворачивает окно браузера во весь экран
         Configuration.startMaximized = true;
     }
 
     @Before
     public void init () {
-        //Открывает проект в браузере для каждого теста
         new BasePage().open();
     }
 
     @After
     public void tearsDown() {
-        //Чистит все куки после каждого теста
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }
 
     @Test
-    public void findNewsAboutArmenia (){
-        //Проверяет что при вводе в поиск текста Armenia, поисковик возвращает сообщение  No results found
+    public void shouldReturnNoResultsFroArmenia (){
         mainPage
                 .clickSearch()
                 .enterSearch("Armenia");
@@ -49,30 +45,19 @@ public class MenuTest {
     }
 
     @Test
-    public void aboutUsCategories(){
-        //Проверяет что категория "О нас" имеет 7 подразделов
+    public void testAboutUsCategories(){
         mainPage.clickMenu();
         assertSame(7, menuPage.getNumberOfCategoriesForAboutUs());
     }
 
 
     @Test
-    public void invalidTestMenuCategories(){
-        //Проверяет что "Меню" не имеет 7 разделов
-        mainPage.clickMenu();
-        assertNotSame(7, menuPage.getNumberOfCategories());
-    }
-
-    @Test
-    public void testMenuCategories(){
-        //Проверяет что "Меню" имеет 6 разделов
+    public void testMainMenuCategoriesQuantity(){
         mainPage.clickMenu();
         assertSame(6, menuPage.getNumberOfCategories());
     }
 
-   
-    public void openCareers(){
-        //Открывает категорию Карьера, скринит содержание контейнера
+    public void screenCareers(){
         //Screen look in \build\reports\tests\1601578464558.0.png
         mainPage.clickMenu();
         menuPage.clickCareers();
@@ -81,13 +66,11 @@ public class MenuTest {
 
     @Test
     public void footerMenuSize(){
-        //Проверяет что footer состоит из 8 разделов
         assertSame(8, menuPage.getNumberOfFooterCategories());
     }
 
     @Test
-    public void footerMenuList(){
-        //Проверяет что название разделов в footer соответствует ожидаемому
+    public void footerItemsShouldMatchExpected(){
         List<String> footlocker = new ArrayList<String>(Arrays.asList("FAQs", "Report Fraud and Corruption", "Legal", "Privacy Statement", "Access to Information", "Extranet", "Careers", "Contact Us"));
         assert (footlocker.equals(menuPage.getFooterCategories()));
     }

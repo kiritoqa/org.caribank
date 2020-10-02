@@ -1,4 +1,4 @@
-package widgests;
+package widgets;
 
 import com.codeborne.selenide.Selenide;
 

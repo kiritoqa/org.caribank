@@ -1,4 +1,4 @@
-package widgests;
+package widgets;
 
 import org.openqa.selenium.By;
 

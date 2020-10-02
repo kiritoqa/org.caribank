@@ -1,6 +1,5 @@
-package widgests;
+package widgets;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage {
