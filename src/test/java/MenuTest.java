@@ -52,7 +52,7 @@ public class MenuTest {
     public void aboutUsCategories(){
         //Проверяет что категория "О нас" имеет 7 подразделов
         mainPage.clickMenu();
-        assertSame(7, menuPage.aboutUsShouldHaveNumberCategories());
+        assertSame(7, menuPage.getNumberOfCategoriesForAboutUs());
     }
 
 
@@ -60,17 +60,17 @@ public class MenuTest {
     public void invalidTestMenuCategories(){
         //Проверяет что "Меню" не имеет 7 разделов
         mainPage.clickMenu();
-        assertNotSame(7, menuPage.shouldHaveNumberCategories());
+        assertNotSame(7, menuPage.getNumberOfCategories());
     }
 
     @Test
     public void testMenuCategories(){
         //Проверяет что "Меню" имеет 6 разделов
         mainPage.clickMenu();
-        assertSame(6, menuPage.shouldHaveNumberCategories());
+        assertSame(6, menuPage.getNumberOfCategories());
     }
 
-    @Test
+   
     public void openCareers(){
         //Открывает категорию Карьера, скринит содержание контейнера
         //Screen look in \build\reports\tests\1601578464558.0.png
@@ -82,14 +82,14 @@ public class MenuTest {
     @Test
     public void footerMenuSize(){
         //Проверяет что footer состоит из 8 разделов
-        assertSame(8, menuPage.footrestsHaveNumberCategories());
+        assertSame(8, menuPage.getNumberOfFooterCategories());
     }
 
     @Test
     public void footerMenuList(){
         //Проверяет что название разделов в footer соответствует ожидаемому
         List<String> footlocker = new ArrayList<String>(Arrays.asList("FAQs", "Report Fraud and Corruption", "Legal", "Privacy Statement", "Access to Information", "Extranet", "Careers", "Contact Us"));
-        assert (footlocker.equals(menuPage.footrestsHaveListCategories()));
+        assert (footlocker.equals(menuPage.getFooterCategories()));
     }
 }
 
