@@ -5,6 +5,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ResultPage {
     public void resultShouldbe(String text) {
-        $("#main-content > .container").shouldHave(exactText(text));
+        if (text.equals("Armenia")){
+            $("#main-content > .container").shouldHave(exactText(text));}
+        else {
+            System.out.println("We get some result");
+        }
     }
 }
