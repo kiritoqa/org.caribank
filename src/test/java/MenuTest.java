@@ -70,7 +70,7 @@ public class MenuTest {
 
     @Test
     public void footerMenuSize(){
-        Assert.assertEquals(8, menuPage.getNumberOfFooterCategories());
+        Assert.assertEquals(7, menuPage.getNumberOfFooterCategories());
     }
 
 
