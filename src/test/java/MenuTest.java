@@ -27,14 +27,13 @@ public class MenuTest {
     }
 
     @Test
-    @Parameters({"text","result"})
-    void shouldReturnNoResultsFroArmenia (String text, String result){
+    void shouldReturnNoResultsFroArmenia (){
 
         mainPage
                 .clickSearch()
-                .enterSearch(text);
+                .enterSearch("Armenia");
         resultPage
-                .resultShouldbe(result);
+                .resultShouldbe("Armenia", "No results found. Please try a different search.");
     }
 
     @Test
