@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.screenshot;
+
 
 public class MenuTest {
-
+    String path = "C:\\Users\\Serghei\\IdeaProjects\\.org.caribank\\screenshots\\actual";
     MainPage mainPage = new MainPage();
     ResultPage resultPage = new ResultPage();
     MenuPage menuPage = new MenuPage();
     CareersPage careersPage = new CareersPage();
+    ImageComparison comparison = new ImageComparison();
 
     @BeforeClass
     void inicializatedriver(){
@@ -42,12 +45,14 @@ public class MenuTest {
         assert (footlocker.equals(menuPage.getFooterCategories()));
     }
 
+
     @Test
     public void screenCareers(){
         //Screen look in \build\reports\tests\1601578464558.0.png
         mainPage.clickMenu();
         menuPage.clickCareers();
-        careersPage.getScreenContainer();
+        //screenshot(path+"careersPage.png");
+        comparison.saveImage("careersPage.png", "careersPage.png","careersPage.png");
     }
 
     @Test
@@ -72,5 +77,8 @@ public class MenuTest {
     public void footerMenuSize1(){
         Assert.assertEquals(8, menuPage.getNumberOfFooterCategories());
     }
+
+
+
 }
 
