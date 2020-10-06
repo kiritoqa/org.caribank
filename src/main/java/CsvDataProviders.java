@@ -13,11 +13,7 @@ import org.testng.annotations.DataProvider;
 
 import com.opencsv.CSVReader;
 
-//protected void vanillaScrollBottomTop()
-//    {
-//        executeJs("window.scrollTo(0,document.body.scrollHeight);");
-//        executeJs("window.scrollTo(0,0);");
-//    }
+
 public class CsvDataProviders {
 
     @DataProvider(name = "csvReader")

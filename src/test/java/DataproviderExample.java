@@ -13,9 +13,10 @@ public class DataproviderExample {
 
     @Test(dataProvider ="csvReader", dataProviderClass = CsvDataProviders.class)
     public void shouldReturnNoResultsFroArmenia(Map<String, String> testData){
+        String browser = testData.get("browser");
         String text = testData.get("text");
         String result = testData.get("result");
-
+        Configuration.browser = browser;
         Configuration.startMaximized = true;
         new BasePage().open();
         mainPage
@@ -23,6 +24,7 @@ public class DataproviderExample {
                 .enterSearch(text);
         resultPage
                 .resultShouldbe(text,result);
+        Selenide.closeWindow();
     }
 
 }

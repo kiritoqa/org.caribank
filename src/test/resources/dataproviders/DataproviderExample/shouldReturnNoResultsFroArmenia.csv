@@ -1,4 +1,4 @@
-text,result
-Armenia,No results found. Please try a different search.
-America,sert
-News,rets
+browser,text,result
+chrome,Armenia,No results found. Please try a different search.
+legacy_firefox,America,sert
+opera,News,rets
