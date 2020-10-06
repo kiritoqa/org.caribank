@@ -3,7 +3,10 @@
 <suite name="All Test Suite" parallel="true" thread-count="1">
     <test verbose="2" preserve-order="true"
           name="C:/Users/Serghei/IdeaProjects/.org.caribank/src/test/java/MenuTest.java">
-        <classes/>
+        <classes>
+            <class name="MenuTest"/>
+            <class name="DataproviderExample"/>
+        </classes>
 
     </test>
 </suite>
